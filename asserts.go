@@ -2,30 +2,30 @@ package assert
 
 import "fmt"
 
-// Params panics with an error having formatted message if condition is false.
-// This assertion represents that parameters must satisfy the condition.
+// Params panics with an error containing a formatted message if the condition is false.
+// This assertion ensures that the parameters satisfy the condition.
 func Params(condition bool, format string, args ...any) {
 	if !condition {
 		panic(fmt.Errorf(`invalid params: `+format, args...))
 	}
 }
 
-// State panics with an error having formatted message if condition is false.
-// This assertion represents that a state of an object must satisfy the condition.
+// State panics with an error containing a formatted message if the condition is false.
+// This assertion ensures that the state of an object satisfies the condition.
 func State(condition bool, format string, args ...any) {
 	if !condition {
 		panic(fmt.Errorf(`invalid state: `+format, args...))
 	}
 }
 
-// Unexpected panics with an error having formatted message when it is called.
-// This assertion represents that execution reaching this code is unexpected.
+// Unexpected panics with an error containing a formatted message when it is called.
+// This assertion represents that reaching this code is unexpected.
 func Unexpected(format string, args ...any) {
-	panic(fmt.Errorf(`unexpected state: `+format, args...))
+	panic(fmt.Errorf(`unexpected code execution: `+format, args...))
 }
 
-// Unexpected1 panics with an error having formatted message when it is called.
-// This assertion represents that execution reaching this code is unexpected.
+// Unexpected1 panics with an error containing a formatted message when it is called.
+// This assertion represents that reaching this code is unexpected.
 // This function call can be used as a value to be returned, for example:
 // ```go
 // type Enum int
@@ -48,11 +48,11 @@ func Unexpected(format string, args ...any) {
 //	    }
 //	}
 func Unexpected1[T any](format string, args ...any) T {
-	panic(fmt.Errorf(`unexpected state: `+format, args...))
+	panic(fmt.Errorf(`unexpected code execution: `+format, args...))
 }
 
-// Unexpected2 panics with an error having formatted message when it is called.
-// This assertion represents that execution reaching this code is unexpected.
+// Unexpected2 panics with an error containing a formatted message when it is called.
+// This assertion represents that reaching this code is unexpected.
 // This function call can be used as values to be returned, for example:
 // ```go
 // type Enum int
@@ -75,11 +75,11 @@ func Unexpected1[T any](format string, args ...any) T {
 //	    }
 //	}
 func Unexpected2[T1, T2 any](format string, args ...any) (T1, T2) {
-	panic(fmt.Errorf(`unexpected state: `+format, args...))
+	panic(fmt.Errorf(`unexpected code execution: `+format, args...))
 }
 
-// Unexpected3 panics with an error having formatted message when it is called.
-// This assertion represents that execution reaching this code is unexpected.
+// Unexpected3 panics with an error containing a formatted message when it is called.
+// This assertion represents that reaching this code is unexpected.
 // This function call can be used as values to be returned, for example:
 // ```go
 // type Enum int
@@ -102,5 +102,5 @@ func Unexpected2[T1, T2 any](format string, args ...any) (T1, T2) {
 //	    }
 //	}
 func Unexpected3[T1, T2, T3 any](format string, args ...any) (T1, T2, T3) {
-	panic(fmt.Errorf(`unexpected state: `+format, args...))
+	panic(fmt.Errorf(`unexpected code execution: `+format, args...))
 }
